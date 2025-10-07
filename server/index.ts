@@ -57,7 +57,7 @@ let server: any;
   // doesn't interfere with the other routes
   if (process.env.NODE_ENV === "development") {
     await setupVite(app, server);
-  } else {
+  } else if (!process.env.FRONTEND_SEPARATE) {
     serveStatic(app);
   }
 
